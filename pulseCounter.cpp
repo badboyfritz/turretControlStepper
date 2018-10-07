@@ -13,8 +13,8 @@ void initPcnt(byte pin)
 	// setup pcnt_config_t
 	pcnt_config_t pcnt_config =
 	{
-		pin,												     	// = GPIO5 Pulse input gpio_num, if you want to use gpio16, pulse_gpio_num = 16, a negative value will be ignored
-		PCNT_PIN_NOT_USED,											//  = -1 Control signal input gpio_num, a negative value will be ignored
+		pin,												     	    // = GPIO5 Pulse input gpio_num, if you want to use gpio16, pulse_gpio_num = 16, a negative value will be ignored
+		PCNT_PIN_NOT_USED,										//  = -1 Control signal input gpio_num, a negative value will be ignored
 		PCNT_MODE_KEEP,												// = 0 PCNT low control mode
 		PCNT_MODE_KEEP,												// PCNT high control mode
 		PCNT_COUNT_INC,												// PCNT positive edge count mode
@@ -30,8 +30,8 @@ void initPcnt(byte pin)
 		Serial.println("Config Unit_0 = ESP_OK");
 
 	// filter value
-	pcnt_set_filter_value(PCNT_TEST_UNIT, 1);
-	pcnt_filter_enable(PCNT_TEST_UNIT);
+	//pcnt_set_filter_value(PCNT_TEST_UNIT, 1);
+	//pcnt_filter_enable(PCNT_TEST_UNIT);
 
 	// * @brief Disable PCNT interrupt for PCNT unit  * @param pcnt_unit PCNT unit number  * @return  *     - ESP_OK Success *     - ESP_ERR_INVALID_ARG Parameter error  -->  esp_err_t pcnt_intr_disable(pcnt_unit_t pcnt_unit);
 	pcnt_intr_disable(PCNT_TEST_UNIT);
@@ -52,7 +52,3 @@ void initPcnt(byte pin)
 	pcnt_counter_resume(PCNT_TEST_UNIT);							// Resume counting
 
 }
-
-
-
-
